@@ -34,3 +34,10 @@ Multiple destinies:
 - Rise to greatness
 - Fall into ruin
 - Wander in obscurity
+
+## GTA-Style Inspiration
+Life Paths: Rise or Ruin draws from GTA's immersive city feel but shifts focus:
+- Jobs and careers instead of crime missions
+- Languages and culture as unlockable opportunities
+- Choices and consequences shaping destiny
+- Multiple endings: greatness, ruin, or obscurity
