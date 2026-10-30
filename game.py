@@ -1,4 +1,6 @@
 from city import City
+from events import EventSystem
+import random
 
 class Player:
     def __init__(self, name):
@@ -10,6 +12,7 @@ class Player:
             'relationships': 50
         }
         self.city = City()
+        self.events = EventSystem()
 
     def work(self, district, job):
         if job in self.city.available_jobs(district):
@@ -18,11 +21,14 @@ class Player:
         else:
             self.stats['health'] -= 5
 
-    def show_stats(self):
-        return self.stats
+    def live_day(self):
+        # Player works, then faces a random event
+        self.work('Market', 'merchant')
+        event, stats = self.events.trigger_event(self)
+        print(f'Event: {event}')
+        print('Stats:', stats)
 
 if __name__ == '__main__':
     p = Player('Hero')
-    p.work('Market', 'merchant')
-    print(p.show_stats())
+    p.live_day()
 
