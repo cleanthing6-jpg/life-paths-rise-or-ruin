@@ -1,3 +1,5 @@
+from city import City
+
 class Player:
     def __init__(self, name):
         self.name = name
@@ -7,23 +9,20 @@ class Player:
             'morality': 50,
             'relationships': 50
         }
+        self.city = City()
 
-    def make_choice(self, choice):
-        if choice == 'study':
-            self.stats['wealth'] += 5
-            self.stats['morality'] += 2
-        elif choice == 'gamble':
-            self.stats['wealth'] -= 10
-            self.stats['morality'] -= 5
-        elif choice == 'help_friend':
-            self.stats['relationships'] += 10
-            self.stats['morality'] += 5
+    def work(self, district, job):
+        if job in self.city.available_jobs(district):
+            self.stats['wealth'] += 10
+            self.stats['morality'] += 1
+        else:
+            self.stats['health'] -= 5
 
     def show_stats(self):
         return self.stats
 
 if __name__ == '__main__':
     p = Player('Hero')
-    p.make_choice('study')
+    p.work('Market', 'merchant')
     print(p.show_stats())
 
